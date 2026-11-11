@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Luxore — Timepiece Details & Acquisition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/luxora.css" />
+    <link rel="stylesheet" href="./styles/detail.css" />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <nav>
+      <div class="nav-left">
+        <a class="logo gold" href="index.html#home">LUXORE</a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#store">Our Store</a>
+        <a href="my-orders.html" class="my-orders-nav-btn">My Orders 📦</a>
+      </div>
+    </nav>
+
+    <main class="detail-page-container">
+      <div class="breadcrumb-bar">
+        <a href="index.html#collection" class="back-link"
+          >← Return to Watch Collection</a
+        >
+      </div>
+
+      <div id="product-detail-root" class="product-detail-grid">
+        <div class="loading-state">Accessing Swiss Horology Archives...</div>
+      </div>
+    </main>
+
+    <!-- Bank / Mobile Wallet 2FA OTP Intercept Gateway Modal -->
+    <div id="payment-gateway-modal" class="gateway-modal-overlay">
+      <div class="gateway-card">
+        <div class="gateway-header">
+          <div id="gateway-app-logo" class="app-logo-badge">JazzCash</div>
+          <h3 id="gateway-app-title">Authorize Merchant Payment</h3>
+        </div>
+
+        <!-- Live Simulated Push Notification Banner -->
+        <div id="live-sms-alert" class="sms-push-banner">
+          <small>📱 Real-Time Bank SMS Prompt:</small>
+          <span
+            >Use Verification OTP
+            <b id="simulated-otp-code" class="gold">123456</b> to authorize
+            Luxore settlement.</span
+          >
+        </div>
+
+        <p class="gateway-prompt" id="gateway-prompt-text">
+          Enter the 6-digit authentication OTP dispatched to your mobile account
+          to complete transfer directly to Luxore Merchant:
+        </p>
+
+        <div class="gateway-input-group">
+          <label>Enter 6-Digit Verification OTP</label>
+          <input
+            type="text"
+            id="gateway-mpin"
+            maxlength="6"
+            placeholder="• • • • • •"
+            class="mpin-input"
+          />
+        </div>
+
+        <div class="gateway-timer-text">
+          Security window active: <span>01:45</span>
+        </div>
+
+        <div class="gateway-actions">
+          <button
+            type="button"
+            id="btn-approve-payment"
+            class="btn f gateway-approve-btn"
+          >
+            Authorize & Pay to Merchant
+          </button>
+          <button
+            type="button"
+            id="btn-cancel-gateway"
+            class="btn gateway-cancel-btn"
+          >
+            Abort Transaction
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settlement Processing Notification Overlay -->
+    <div id="order-notification-modal" class="notification-overlay">
+      <div class="notification-box">
+        <div class="notify-icon">✓</div>
+        <h3>Payment Settled & Dispatched!</h3>
+        <p id="notify-msg-text">Processing invoice...</p>
+        <div class="notify-progress-bar">
+          <div class="notify-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="detail-footer"></footer>
+
+    <script type="module" src="./js-files/productDetailHandler.js"></script>
+  </body>
+</html>

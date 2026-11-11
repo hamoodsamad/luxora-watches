@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Luxore Watches — Timeless Luxury</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/luxora.css" />
+  </head>
+  <body>
+    <div id="bgw"></div>
+    <div id="cur"></div>
+    <div id="dot"></div>
+
+    <!-- Optional Member Login / Welcome Popup -->
+    <div id="welcome-login-modal" class="auth-modal-overlay">
+      <div class="auth-modal-card">
+        <button
+          id="btn-skip-login"
+          class="skip-btn"
+          title="Skip and continue shopping"
+        >
+          Skip & Continue as Guest ✕
+        </button>
+        <div class="logo gold" style="font-size: 2rem; margin-bottom: 8px">
+          LUXORE
+        </div>
+        <p class="eye">Private Collector Access</p>
+        <p style="color: var(--mut); font-size: 0.9rem; margin-bottom: 20px">
+          Log in for personalized horological curation, or continue as a private
+          guest.
+        </p>
+
+        <form id="client-login-form">
+          <input
+            type="text"
+            id="member-name"
+            class="modal-input"
+            placeholder="Your Name"
+          />
+          <input
+            type="email"
+            id="member-email"
+            class="modal-input"
+            placeholder="Email Address"
+          />
+          <button
+            type="submit"
+            class="btn f"
+            style="width: 100%; margin-top: 10px"
+          >
+            Enter Boutique
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-left">
+        <a class="logo gold" href="#home">LUXORE</a>
+      </div>
+      <div class="nav-links">
+        <a href="#home" data-n="home">Home</a>
+        <a href="#collection" data-n="collection">Collection</a>
+        <a href="#store" data-n="store">Our Store</a>
+        <a href="#contact" data-n="contact">Contact</a>
+        <span
+          id="nav-user-greeting"
+          style="font-size: 0.75rem; color: var(--g); margin-left: 15px"
+        ></span>
+      </div>
+    </nav>
+
+    <!-- View 1: Home -->
+    <main id="home" class="v on">
+      <div>
+        <header class="hero">
+          <div class="rv">
+            <p class="eye">Swiss-Inspired Craftsmanship</p>
+            <h1>Time, <span class="gold">Perfected.</span></h1>
+            <p>
+              Luxore crafts timepieces for those who measure life in moments,
+              not minutes. Precision engineering, timeless design, a legacy for
+              your wrist.
+            </p>
+            <a class="btn f" href="#collection">Shop Collection</a>
+            <a class="btn" href="#store">Our Story</a>
+          </div>
+          <div class="stage rv">
+            <div id="hw">
+              <img
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                alt="Luxore Hero Watch"
+              />
+            </div>
+          </div>
+        </header>
+
+        <!-- Seamless Infinite Marquee Slider -->
+        <div class="marq">
+          <div class="trk" id="mq"></div>
+        </div>
+
+        <!-- Signature Pieces Section -->
+        <section>
+          <div class="head rv">
+            <p class="eye">Signature Pieces</p>
+            <h2>Our Finest <span class="gold">Timepieces</span></h2>
+            <p>
+              Click any watch to open full specifications and place your order.
+            </p>
+          </div>
+          <div class="grid sig" id="sg"></div>
+        </section>
+
+        <!-- Best Masterpiece Section -->
+        <section class="best" id="best">
+          <div class="bw rv">
+            <div class="ring"></div>
+            <div id="tourbillon-watch">
+              <img
+                src="./assets/images/tourbillon.png"
+                alt="Imperium Tourbillon"
+                onerror="
+                  this.onerror = null;
+                  this.src = 'https://pngimg.com/d/watches_PNG9899.png';
+                "
+              />
+            </div>
+          </div>
+          <div class="rv">
+            <p class="eye">The Masterpiece</p>
+            <h2>Imperium <span class="gold">Tourbillon</span></h2>
+            <p class="masterpiece-desc">
+              Our single finest creation. A hand-assembled tourbillon movement,
+              18k gold case, and a limited run of only 50 pieces worldwide.
+            </p>
+            <ul>
+              <li>Movement<b>Manual tourbillon</b></li>
+              <li>Case<b>18k gold, 42 mm</b></li>
+              <li>Power reserve<b>72 hours</b></li>
+              <li>Water resistance<b>100 m</b></li>
+            </ul>
+            <div class="pr">$18,900</div>
+            <br />
+            <button class="btn f open-tourbillon-btn">Inspect & Order</button>
+          </div>
+        </section>
+
+        <footer id="f1"></footer>
+      </div>
+    </main>
+
+    <!-- View 2: Collection -->
+    <main id="collection" class="v">
+      <div>
+        <section class="ph">
+          <p class="eye">Shop</p>
+          <h1>The <span class="gold">Collection</span></h1>
+        </section>
+        <section class="collection-controls">
+          <div class="tabs" id="tb">
+            <button class="btn on" data-f="all">All</button>
+            <button class="btn" data-f="men">Men</button>
+            <button class="btn" data-f="women">Women</button>
+            <button class="btn" data-f="limited">Limited</button>
+          </div>
+          <div class="grid" id="cg"></div>
+        </section>
+        <footer id="f2"></footer>
+      </div>
+    </main>
+
+    <!-- View 3: Our Store (Admin-Controlled) -->
+    <main id="store" class="v">
+      <div>
+        <section class="ph">
+          <p class="eye">Our Store</p>
+          <h1 id="store-display-headline">
+            A Legacy of <span class="gold">Precision</span>
+          </h1>
+        </section>
+
+        <section class="stats">
+          <div class="rv">
+            <b class="gold" id="stat-years">28</b
+            ><span>Years of Experience</span>
+          </div>
+          <div class="rv">
+            <b class="gold cnt" id="stat-delivered">120,000</b
+            ><span>Watches Delivered</span>
+          </div>
+          <div class="rv">
+            <b class="gold cnt" id="stat-craftsmen">85+</b
+            ><span>Master Craftsmen</span>
+          </div>
+          <div class="rv">
+            <b class="gold cnt" id="stat-countries">40+</b
+            ><span>Countries Served</span>
+          </div>
+        </section>
+
+        <section>
+          <div class="two">
+            <div class="store-img-box rv">
+              <img
+                id="store-display-img"
+                src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=80"
+                alt="Luxore Watchmaking Heritage"
+                class="store-feature-img"
+              />
+            </div>
+            <div class="rv">
+              <p class="eye">Who We Are</p>
+              <h2 id="store-story-heading">
+                Made to be <span class="gold">Inherited</span>
+              </h2>
+              <p id="store-story-desc">
+                Every Luxore watch begins with a simple belief: a watch should
+                outlive its owner. Our designers blend classic proportions with
+                modern materials, and every movement is certified before
+                delivery.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <footer id="f3"></footer>
+      </div>
+    </main>
+
+    <!-- View 4: Contact -->
+    <main id="contact" class="v">
+      <div>
+        <section class="ph">
+          <p class="eye">Get in Touch</p>
+          <h1>Contact <span class="gold">Luxore</span></h1>
+        </section>
+        <section>
+          <div class="fm rv">
+            <input type="text" placeholder="Your name" />
+            <input type="email" placeholder="Your email" />
+            <textarea rows="5" placeholder="Your message"></textarea>
+            <a class="btn f" href="#contact">Send Message</a>
+          </div>
+        </section>
+        <footer id="f4"></footer>
+      </div>
+    </main>
+
+    <script type="module" src="./js-files/main.js"></script>
+  </body>
+</html>

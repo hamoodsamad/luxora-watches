@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luxore — Secret Owner Administration</title>
+    <link rel="stylesheet" href="./styles/admin.css" />
+  </head>
+  <body>
+    <!-- Password Lock Screen -->
+    <div id="auth-lock" class="auth-panel">
+      <div class="auth-box">
+        <h2>Luxore Master Administration</h2>
+        <p>
+          Restricted access. Please provide the authorized administrative
+          passcode.
+        </p>
+        <input
+          type="password"
+          id="admin-passcode"
+          placeholder="Enter administrative passcode"
+        />
+        <button id="auth-btn">Unlock Console</button>
+        <span id="auth-err" class="error-text"></span>
+      </div>
+    </div>
+
+    <!-- Main Admin Dashboard -->
+    <div id="admin-dashboard" class="dashboard-panel hidden">
+      <header class="admin-header">
+        <h1>Luxore Master Administration Console</h1>
+        <div>
+          <a href="index.html" class="exit-link">← Return to Storefront</a>
+        </div>
+      </header>
+
+      <!-- SECTION 1: Client Purchase Orders & Settlement Log -->
+      <div class="admin-card full-width-card">
+        <div class="card-title-row">
+          <div>
+            <h2>
+              Client Purchase Orders & Treasury Settlements (<span
+                id="orders-count"
+                >0</span
+              >
+              Orders)
+            </h2>
+            <small style="color: #a89f8c"
+              >Verify merchant received funds, print shipping labels, and
+              release customer refunds</small
+            >
+          </div>
+          <button id="btn-clear-orders" class="danger-outline-btn">
+            Clear All Orders
+          </button>
+        </div>
+        <div id="orders-log-container" class="orders-table-wrapper"></div>
+      </div>
+
+      <!-- SECTION 2: Change Portal Passcode Module -->
+      <div class="admin-card full-width-card" style="margin-top: 30px">
+        <div class="card-title-row">
+          <h2>Security Credentials & Passcode Management</h2>
+          <span style="font-size: 0.8rem; color: #b8923a"
+            >Update owner secret key</span
+          >
+        </div>
+        <form id="change-pass-form" style="max-width: 500px">
+          <label>Current Active Passcode</label>
+          <input
+            type="password"
+            id="old-passcode"
+            placeholder="Enter current passcode"
+            required
+          />
+
+          <label>New Secret Passcode</label>
+          <input
+            type="password"
+            id="new-passcode"
+            placeholder="Enter new custom passcode"
+            required
+          />
+
+          <label>Confirm New Secret Passcode</label>
+          <input
+            type="password"
+            id="confirm-passcode"
+            placeholder="Re-type new passcode"
+            required
+          />
+
+          <button type="submit" class="submit-btn" style="margin-top: 15px">
+            Update Passcode
+          </button>
+        </form>
+      </div>
+
+      <!-- SECTION 3: "Our Store" Live Editor -->
+      <div class="admin-card full-width-card" style="margin-top: 30px">
+        <div class="card-title-row">
+          <h2>"Our Store" Content & Statistics Editor</h2>
+          <span style="font-size: 0.8rem; color: #b8923a"
+            >Controls the live /#store view</span
+          >
+        </div>
+        <form id="edit-store-form" class="store-editor-grid">
+          <div>
+            <label>Store Main Headline</label>
+            <input
+              type="text"
+              id="adm-store-headline"
+              placeholder="A Legacy of Precision"
+              required
+            />
+
+            <label>Story Section Subtitle</label>
+            <input
+              type="text"
+              id="adm-story-heading"
+              placeholder="Made to be Inherited"
+              required
+            />
+
+            <label>Boutique Story Content</label>
+            <textarea
+              id="adm-story-desc"
+              rows="4"
+              placeholder="Every Luxore watch begins with a simple belief..."
+              required
+            ></textarea>
+
+            <label>Boutique Feature Image URL</label>
+            <input
+              type="text"
+              id="adm-store-img"
+              placeholder="https://images.unsplash.com/..."
+              required
+            />
+          </div>
+
+          <div>
+            <label>Statistic: Years of Experience</label>
+            <input type="text" id="adm-stat-years" placeholder="28" required />
+
+            <label>Statistic: Watches Delivered</label>
+            <input
+              type="text"
+              id="adm-stat-delivered"
+              placeholder="120,000"
+              required
+            />
+
+            <label>Statistic: Master Craftsmen</label>
+            <input
+              type="text"
+              id="adm-stat-craftsmen"
+              placeholder="85+"
+              required
+            />
+
+            <label>Statistic: Countries Served</label>
+            <input
+              type="text"
+              id="adm-stat-countries"
+              placeholder="40+"
+              required
+            />
+
+            <button type="submit" class="submit-btn" style="margin-top: 24px">
+              Save & Publish Store Updates
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SECTION 4: Deploy New Watch & Inventory -->
+      <div class="admin-grid" style="margin-top: 30px">
+        <div class="admin-card">
+          <h2>Deploy New Timepiece</h2>
+          <form id="add-watch-form">
+            <label>Timepiece Model Title</label>
+            <input
+              type="text"
+              id="watch-name"
+              placeholder="e.g. Royal Chronometer"
+              required
+            />
+
+            <label>Price Display</label>
+            <input
+              type="text"
+              id="watch-price"
+              placeholder="e.g. $3,450"
+              required
+            />
+
+            <label>Category Filter</label>
+            <select id="watch-category">
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="limited">Limited Edition</option>
+            </select>
+
+            <label>Badge / Tag</label>
+            <input
+              type="text"
+              id="watch-tag"
+              placeholder="e.g. Exclusive, New"
+            />
+
+            <label>Image URL or Relative Path</label>
+            <input
+              type="text"
+              id="watch-img"
+              placeholder="./assets/images/tourbillon.png"
+              required
+            />
+
+            <label>Detailed Movement & Dial Description</label>
+            <textarea
+              id="watch-desc"
+              rows="3"
+              placeholder="Gold-plated rotor, sapphire crystal..."
+              required
+            ></textarea>
+
+            <button type="submit" class="submit-btn">
+              Publish to Customer Catalog
+            </button>
+          </form>
+        </div>
+
+        <div class="admin-card">
+          <h2>Active Inventory Management</h2>
+          <div id="inventory-list" class="inventory-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js-files/adminHandler.js"></script>
+  </body>
+</html>

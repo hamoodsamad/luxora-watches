@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>My Orders & Acquisition History — Luxore</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/luxora.css" />
+    <link rel="stylesheet" href="./styles/myorders.css" />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <nav>
+      <div class="nav-left">
+        <a class="logo gold" href="index.html#home">LUXORE</a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#store">Our Store</a>
+        <a href="my-orders.html" class="my-orders-nav-btn active-gold"
+          >My Orders 📦</a
+        >
+      </div>
+    </nav>
+
+    <main class="my-orders-container">
+      <div class="orders-header-row">
+        <div>
+          <p class="eye">Client Vault Archive</p>
+          <h1>My Timepiece <span class="gold">Acquisitions</span></h1>
+          <p style="color: var(--mut)">
+            Manage your acquired watches, live courier dispatch, or process
+            cancellation refunds.
+          </p>
+        </div>
+        <a href="index.html#collection" class="btn f"
+          >+ Acquire Another Watch</a
+        >
+      </div>
+
+      <!-- Orders List Container -->
+      <div id="my-orders-mount" class="orders-cards-grid">
+        <div class="loading-state">
+          Accessing your luxury purchase history...
+        </div>
+      </div>
+    </main>
+
+    <footer id="myorders-footer"></footer>
+
+    <script type="module" src="./js-files/myOrdersHandler.js"></script>
+  </body>
+</html>

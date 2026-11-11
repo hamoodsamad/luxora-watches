@@ -1,0 +1,293 @@
+body {
+  background: #0d0c0a;
+  color: #e5dec9;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-panel {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.auth-box {
+  background: #171510;
+  border: 1px solid #b8923a;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 18px 0;
+  background: #0d0c0a;
+  border: 1px solid #332d1e;
+  color: #fff;
+  outline: none;
+}
+
+.auth-box button,
+.submit-btn {
+  background: #b8923a;
+  color: #0d0c0a;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.error-text {
+  color: #ff5e5e;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.dashboard-panel {
+  padding: 40px 6%;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #332d1e;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.exit-link {
+  color: #b8923a;
+  text-decoration: none;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.admin-card {
+  background: #171510;
+  border: 1px solid #2a2417;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.admin-card label {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: #a89f8c;
+}
+
+.admin-card input,
+.admin-card select,
+.admin-card textarea {
+  width: 100%;
+  padding: 10px;
+  background: #0d0c0a;
+  border: 1px solid #332d1e;
+  color: #e5dec9;
+  margin-top: 5px;
+  outline: none;
+}
+
+.inventory-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #241f14;
+  padding: 12px 0;
+}
+
+.del-btn {
+  background: #a83232;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+/* =========================================================
+   Admin Styles for Customer Purchase Orders
+   ========================================================= */
+.full-width-card {
+  width: 100%;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #332d1e;
+  padding-bottom: 12px;
+}
+
+.danger-outline-btn {
+  background: none;
+  border: 1px solid #a83232;
+  color: #ff6b6b;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.danger-outline-btn:hover {
+  background: #a83232;
+  color: #fff;
+}
+
+.orders-table-wrapper {
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.orders-table th {
+  background: #100f0c;
+  color: #b8923a;
+  padding: 12px;
+  border-bottom: 1px solid #332d1e;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.orders-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #241f14;
+  vertical-align: top;
+}
+
+.orders-table tr:hover {
+  background: #13120e;
+}
+.store-editor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 800px) {
+  .store-editor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   Order Management Badges & Individual Action Buttons
+   ========================================================= */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.status-active {
+  background: rgba(184, 146, 58, 0.2);
+  color: #e6c76f;
+  border: 1px solid #b8923a;
+}
+
+.status-cancelled {
+  background: rgba(168, 50, 50, 0.2);
+  color: #ff6b6b;
+  border: 1px solid #a83232;
+}
+
+.action-btn-del {
+  background: #a83232;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.action-btn-del:hover {
+  background: #c53030;
+}
+
+.action-btn-cancel {
+  background: none;
+  color: #e6c76f;
+  border: 1px solid #b8923a;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.action-btn-cancel:hover {
+  background: #b8923a;
+  color: #15130e;
+}
+.action-btn-copy {
+  background: #241f14;
+  color: #e6c76f;
+  border: 1px solid #b8923a;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.action-btn-copy:hover {
+  background: #b8923a;
+  color: #15130e;
+}
+
+.action-btn-print {
+  background: #111;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.action-btn-print:hover {
+  background: #fff;
+  color: #111;
+}
+.action-btn-refund {
+  background: #2a1f10;
+  color: #5cd65c;
+  border: 1px solid #5cd65c;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.action-btn-refund:hover {
+  background: #5cd65c;
+  color: #111;
+}

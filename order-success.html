@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Order Confirmation & Dispatch — Luxore</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/luxora.css" />
+    <link rel="stylesheet" href="./styles/confirmation.css" />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <nav>
+      <div class="nav-left">
+        <a class="logo gold" href="index.html#home">LUXORE</a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#store">Our Store</a>
+      </div>
+    </nav>
+
+    <!-- Main Confirmation Wrapper -->
+    <main class="confirmation-page-wrapper">
+      <div class="confirmation-card-root">
+        <div class="verified-icon">✓</div>
+        <p class="eye">Acquisition Verified & Paid</p>
+        <h1>Congratulations on Your <span class="gold">Timepiece</span></h1>
+        <p class="order-intro-text">
+          Your payment and allocation have been registered. A formal invoice has
+          been sent to your email.
+        </p>
+
+        <!-- Dynamic Invoice Card -->
+        <div id="receipt-mount"></div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons" style="margin-top: 25px">
+          <a href="index.html#collection" class="btn f"
+            >Continue Browsing Collection</a
+          >
+          <button
+            id="btn-cancel-my-order"
+            class="btn"
+            style="border-color: #a83232; color: #ff6b6b"
+          >
+            Cancel This Order
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./js-files/confirmationHandler.js"></script>
+  </body>
+</html>
