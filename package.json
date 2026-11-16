@@ -6,8 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
-    "build": "echo 'Vercel build complete - static assets ready'"
+    "dev": "node server.js"
   },
   "keywords": [
     "luxury",

@@ -1,42 +1,21 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.js"
+      "source": "/admin",
+      "destination": "/admin.html"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "source": "/product-detail",
+      "destination": "/product-detail.html"
     },
     {
-      "src": "/styles/(.*)",
-      "dest": "/styles/$1"
+      "source": "/my-orders",
+      "destination": "/my-orders.html"
     },
     {
-      "src": "/js-files/(.*)",
-      "dest": "/js-files/$1"
-    },
-    {
-      "src": "/admin",
-      "dest": "/admin.html"
-    },
-    {
-      "src": "/product-detail",
-      "dest": "/product-detail.html"
-    },
-    {
-      "src": "/my-orders",
-      "dest": "/my-orders.html"
-    },
-    {
-      "src": "/order-success",
-      "dest": "/order-success.html"
-    },
-    {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/order-success",
+      "destination": "/order-success.html"
     }
   ],
   "headers": [
@@ -49,11 +28,7 @@
         },
         {
           "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "value": "SAMEORIGIN"
         }
       ]
     }
