@@ -13,13 +13,11 @@ function setupMobileNav() {
   const drawer = document.getElementById("luxury-menu-drawer");
   const overlay = document.getElementById("nav-drawer-overlay");
   const closeBtn = document.getElementById("drawer-close-btn");
-  const desktopLinks = document.getElementById("main-nav-links");
 
   function closeMenu() {
     toggleBtn?.classList.remove("active");
     drawer?.classList.remove("open");
     overlay?.classList.remove("open");
-    desktopLinks?.classList.remove("mobile-open");
     document.body.style.overflow = "";
   }
 
@@ -27,15 +25,12 @@ function setupMobileNav() {
     toggleBtn?.classList.add("active");
     drawer?.classList.add("open");
     overlay?.classList.add("open");
-    desktopLinks?.classList.add("mobile-open");
     document.body.style.overflow = "hidden";
   }
 
   function toggleMenu(e) {
     if (e) e.stopPropagation();
-    const isOpen =
-      drawer?.classList.contains("open") ||
-      desktopLinks?.classList.contains("mobile-open");
+    const isOpen = drawer?.classList.contains("open");
     if (isOpen) {
       closeMenu();
     } else {
@@ -47,14 +42,12 @@ function setupMobileNav() {
   closeBtn?.addEventListener("click", closeMenu);
   overlay?.addEventListener("click", closeMenu);
 
-  // Close when clicking any link inside drawer or main links
-  document
-    .querySelectorAll(".drawer-link, #main-nav-links a")
-    .forEach((link) => {
-      link.addEventListener("click", () => {
-        closeMenu();
-      });
+  // Close when clicking any link inside drawer
+  document.querySelectorAll(".drawer-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
     });
+  });
 
   // Close on Escape key
   document.addEventListener("keydown", (e) => {

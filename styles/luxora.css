@@ -132,45 +132,32 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 80px;
+  width: 100%;
+  max-width: 100vw;
+  height: 70px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 0 24px;
   background: rgba(10, 9, 7, 0.94);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--bd);
-  width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
 }
 
-.logo {
-  font-size: 1.8rem;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-}
-
-.nav-links {
+.nav-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-shrink: 0;
 }
 
-.nav-links a {
-  margin-left: 10px;
-  color: var(--tx);
+.logo {
+  font-size: 1.7rem;
+  letter-spacing: 0.2em;
   text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--g2);
+  line-height: 1;
 }
 
 .portfolio-back-btn {
@@ -425,7 +412,7 @@ nav {
 
 .v {
   display: none;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 .v.on {
@@ -436,7 +423,7 @@ nav {
    Hero Section
    ========================================================= */
 .hero {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 70px);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 40px;
@@ -1181,7 +1168,7 @@ footer {
 /* 2. Tablet & Mobile Layout (<= 1080px) */
 @media (max-width: 1080px) {
   nav {
-    height: 70px;
+    height: 66px;
     padding: 0 16px;
   }
 
@@ -1190,16 +1177,8 @@ footer {
     letter-spacing: 0.15em;
   }
 
-  .nav-hamburger {
-    display: flex !important;
-  }
-
-  .nav-links.desktop-only {
-    display: none !important;
-  }
-
   .v {
-    padding-top: 70px;
+    padding-top: 66px;
   }
 
   section,
@@ -1333,6 +1312,24 @@ footer {
 
 /* 3. Smartphone Viewports (<= 640px) */
 @media (max-width: 640px) {
+  nav {
+    height: 60px;
+    padding: 0 14px;
+  }
+
+  .logo {
+    font-size: 1.35rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-hamburger {
+    padding: 8px 10px;
+  }
+
+  .v {
+    padding-top: 60px;
+  }
+
   section,
   header,
   footer {
@@ -1427,6 +1424,29 @@ footer {
 
 /* 4. Compact Mobile Devices (<= 380px) */
 @media (max-width: 380px) {
+  nav {
+    height: 56px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-hamburger {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .nav-hamburger span {
+    width: 20px;
+  }
+
+  .v {
+    padding-top: 56px;
+  }
+
   .stats {
     grid-template-columns: 1fr;
   }
