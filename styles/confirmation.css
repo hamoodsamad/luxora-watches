@@ -122,6 +122,12 @@
 }
 
 @media (max-width: 700px) {
+  .confirmation-page-wrapper {
+    padding: 85px 4% 50px;
+  }
+  .confirmation-card-root {
+    padding: 25px 16px;
+  }
   .invoice-grid {
     grid-template-columns: 1fr;
   }
@@ -131,5 +137,9 @@
   }
   .action-buttons {
     flex-direction: column;
+  }
+  .action-buttons .btn {
+    width: 100%;
+    margin: 4px 0;
   }
 }
