@@ -62,42 +62,6 @@ function setupMobileNav() {
   });
 }
 
-// Optional Welcome / Login Modal Engine
-function setupWelcomeLogin() {
-  const modal = document.getElementById("welcome-login-modal");
-  const skipBtn = document.getElementById("btn-skip-login");
-  const form = document.getElementById("client-login-form");
-  const greeting = document.getElementById("nav-user-greeting");
-
-  const storedMember = localStorage.getItem("luxore_logged_member");
-  if (storedMember) {
-    try {
-      const member = JSON.parse(storedMember);
-      if (greeting) greeting.textContent = `Welcome, ${member.name}`;
-      if (modal) modal.classList.add("hidden");
-    } catch (e) {}
-  } else {
-    skipBtn?.addEventListener("click", () => {
-      modal?.classList.add("hidden");
-    });
-
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("member-name")?.value.trim();
-      const email = document.getElementById("member-email")?.value.trim();
-      if (name && email) {
-        localStorage.setItem(
-          "luxore_logged_member",
-          JSON.stringify({ name, email })
-        );
-        if (greeting) greeting.textContent = `Welcome, ${name}`;
-        showLuxToast(`Welcome to the boutique, ${name}`, "success");
-      }
-      modal?.classList.add("hidden");
-    });
-  }
-}
-
 async function applyStoreDataUI() {
   let data = null;
 
@@ -467,7 +431,6 @@ async function initApp() {
   setupTilt(".best .bw", "#tourbillon-watch", 20);
   initCustomCursor();
   setupMobileNav();
-  setupWelcomeLogin();
   setupCollectionControls();
   setupContactForm();
   renderCatalogUI();
