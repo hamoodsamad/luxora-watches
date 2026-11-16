@@ -320,7 +320,6 @@ function setupPageExtras() {
       </div>
       <div style="grid-column: 1 / -1; border-top: 1px solid var(--bd); padding-top: 20px; display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:var(--mut); flex-wrap:wrap; gap:10px;">
         <span>© 2026 Luxore Watches. All rights reserved.</span>
-        <a href="#" class="portfolio-back-btn" data-action="back-to-portfolio" style="font-size:0.7rem;">← Back to Portfolio</a>
       </div>
     `;
   }

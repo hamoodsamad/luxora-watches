@@ -375,7 +375,7 @@ function renderFooters() {
     <div style="grid-column: 1 / -1; border-top: 1px solid var(--bd); padding-top: 20px; display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:var(--mut); flex-wrap:wrap; gap:10px;">
       <span>© 2026 Luxore Watches. All rights reserved. Full-Stack Edition.</span>
       <div style="display:flex; align-items:center; gap:15px;">
-        <a href="#" class="portfolio-back-btn" data-action="back-to-portfolio" style="font-size:0.7rem;">← Portfolio</a>
+        <a href="https://my-portfolio-czuhuqnne-hamoodsamad0321-6526.vercel.app" class="portfolio-back-btn" data-action="back-to-portfolio" style="font-size:0.7rem;">← Back to Portfolio</a>
         <a href="admin.html" target="_blank" title="Authorized Administrative Access" style="color:#4a3f29; text-decoration:none; font-size:0.9rem;">🔒</a>
       </div>
     </div>
