@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "description": "Luxore Watches — Timeless Luxury E-Commerce Experience (Full-Stack)",
   "type": "module",
-  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"

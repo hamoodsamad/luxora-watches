@@ -3,6 +3,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import productsHandler from "./api/products.js";
+import ordersHandler from "./api/orders.js";
+import contactHandler from "./api/contact.js";
+import storeHandler from "./api/store.js";
+import authHandler from "./api/auth.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -22,12 +28,12 @@ const MIME_TYPES = {
 };
 
 // Map of API route handlers
-const apiRoutes = {
-  "/api/products": "./api/products.js",
-  "/api/orders": "./api/orders.js",
-  "/api/contact": "./api/contact.js",
-  "/api/store": "./api/store.js",
-  "/api/auth": "./api/auth.js",
+const apiHandlers = {
+  "/api/products": productsHandler,
+  "/api/orders": ordersHandler,
+  "/api/contact": contactHandler,
+  "/api/store": storeHandler,
+  "/api/auth": authHandler,
 };
 
 const server = http.createServer(async (req, res) => {
@@ -37,17 +43,12 @@ const server = http.createServer(async (req, res) => {
   // 1. API Route Handling
   if (pathname.startsWith("/api/")) {
     const routeKey = pathname.endsWith("/") && pathname.length > 5 ? pathname.slice(0, -1) : pathname;
-    const modulePath = apiRoutes[routeKey];
+    const handler = apiHandlers[routeKey];
 
-    if (modulePath) {
+    if (handler) {
       try {
-        const module = await import(modulePath);
-        const handler = module.default;
-
-        // Enhance req with query and body helper
         req.query = Object.fromEntries(parsedUrl.searchParams);
 
-        // Helper res methods similar to Express/Vercel
         res.status = (code) => {
           res.statusCode = code;
           return res;
@@ -113,13 +114,11 @@ const server = http.createServer(async (req, res) => {
 
 function startServer(portToTry) {
   server.listen(portToTry, () => {
-    console.log(`\n✦ Luxore Watches Full-Stack Server running at: http://localhost:${portToTry}`);
-    console.log(`✦ Ready for Vercel deployment with Serverless APIs.\n`);
+    console.log(`\n✦ Luxore Watches Server running at: http://localhost:${portToTry}`);
   });
 
   server.on("error", (err) => {
     if (err.code === "EADDRINUSE") {
-      console.log(`Port ${portToTry} in use, trying port ${portToTry + 1}...`);
       startServer(portToTry + 1);
     } else {
       console.error("Server error:", err);
