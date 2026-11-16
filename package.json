@@ -1,0 +1,26 @@
+{
+  "name": "luxora-watches",
+  "version": "2.0.0",
+  "description": "Luxore Watches — Timeless Luxury E-Commerce Experience (Full-Stack)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Vercel build complete - static assets ready'"
+  },
+  "keywords": [
+    "luxury",
+    "ecommerce",
+    "watches",
+    "fullstack",
+    "vercel",
+    "serverless",
+    "portfolio"
+  ],
+  "author": "Luxore Horology",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

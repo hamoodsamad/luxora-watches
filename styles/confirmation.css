@@ -1,0 +1,135 @@
+/* =========================================================
+   Order Confirmation & Live Email Preview Styles
+   ========================================================= */
+.confirmation-page-wrapper {
+  padding: 120px 7% 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation-card-root {
+  background: var(--s);
+  border: 1px solid var(--g);
+  border-radius: 8px;
+  max-width: 820px;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+.verified-icon {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  background: var(--g);
+  color: #15130e;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 40px rgba(184, 146, 58, 0.5);
+}
+
+.order-intro-text {
+  color: var(--mut);
+  max-width: 580px;
+  margin: 10px auto 30px;
+  font-size: 1rem;
+}
+
+.invoice-box {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 24px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bd);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.invoice-product-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--bd);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.invoice-product-row img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--bd);
+}
+
+.invoice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-size: 0.95rem;
+}
+
+.invoice-grid span {
+  color: var(--mut);
+  display: block;
+  font-size: 0.85rem;
+}
+
+.invoice-grid b {
+  color: var(--tx);
+}
+
+/* Email Mockup */
+.email-mockup-wrapper {
+  background: #080808;
+  border: 1px dashed var(--g);
+  border-radius: 6px;
+  padding: 24px;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.mockup-header {
+  color: var(--g);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 8px;
+}
+
+.mockup-body {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .invoice-grid {
+    grid-template-columns: 1fr;
+  }
+  .invoice-product-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .action-buttons {
+    flex-direction: column;
+  }
+}
