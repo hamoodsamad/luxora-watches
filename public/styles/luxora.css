@@ -27,6 +27,7 @@ html {
   overflow-x: hidden;
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
+  touch-action: pan-y;
 }
 
 body {
@@ -40,6 +41,8 @@ body {
   overflow-x: clip;
   position: relative;
   line-height: 1.7;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1,
@@ -276,8 +279,8 @@ nav {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  max-width: 440px;
+  width: min(420px, 100vw);
+  max-width: 100%;
   background: rgba(12, 10, 7, 0.98);
   backdrop-filter: blur(28px);
   border-left: 1px solid var(--g);
@@ -288,13 +291,20 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease, opacity 0.3s ease;
   overflow-y: auto;
   box-sizing: border-box;
+  touch-action: pan-y;
 }
 
 .luxury-menu-drawer.open {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .drawer-header {
@@ -399,20 +409,6 @@ nav {
   font-size: 0.8rem;
   color: var(--mut);
   line-height: 1.6;
-}
-  cursor: pointer;
-  padding: 8px 10px;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 101;
-}
-
-.nav-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--g2);
-  transition: all 0.3s ease;
 }
 
 .owner-pill {
@@ -528,13 +524,14 @@ nav {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  contain: paint layout;
+  contain: paint layout strict;
   isolation: isolate;
   clip-path: inset(0);
   padding: 35px 0;
   border-top: 1px solid var(--bd);
   border-bottom: 1px solid var(--bd);
   margin: 30px 0;
+  touch-action: pan-y;
 }
 
 .trk {
@@ -542,6 +539,8 @@ nav {
   gap: 22px;
   width: max-content;
   animation: leftToRight 45s linear infinite;
+  pointer-events: none;
+  user-select: none;
 }
 
 .marq:hover .trk {
@@ -564,6 +563,7 @@ nav {
   border: 1px solid var(--bd);
   padding: 16px;
   text-align: center;
+  pointer-events: auto;
 }
 
 .mi-img-wrap {
