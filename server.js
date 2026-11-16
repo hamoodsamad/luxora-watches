@@ -75,10 +75,15 @@ const server = http.createServer(async (req, res) => {
   // 2. Static File Handling
   let filePath = path.join(__dirname, pathname === "/" ? "index.html" : pathname);
 
-  // Check if file exists without extension, try .html
+  // Check in root or public folder
   if (!fs.existsSync(filePath)) {
-    if (fs.existsSync(filePath + ".html")) {
+    const publicPath = path.join(__dirname, "public", pathname === "/" ? "index.html" : pathname);
+    if (fs.existsSync(publicPath)) {
+      filePath = publicPath;
+    } else if (fs.existsSync(filePath + ".html")) {
       filePath = filePath + ".html";
+    } else if (fs.existsSync(publicPath + ".html")) {
+      filePath = publicPath + ".html";
     }
   }
 
