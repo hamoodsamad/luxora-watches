@@ -24,7 +24,7 @@
       <div class="nav-left">
         <a class="logo gold" href="index.html#home">LUXORE</a>
       </div>
-      <div class="nav-links" id="main-nav-links">
+      <div class="nav-links desktop-only" id="main-nav-links">
         <a href="index.html#home">Home</a>
         <a href="index.html#collection">Collection</a>
         <a href="index.html#store">Our Store</a>
@@ -32,12 +32,55 @@
           >My Orders 📦</a
         >
       </div>
-      <button class="nav-hamburger" id="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+      <button class="nav-hamburger" id="nav-toggle-btn" aria-label="Toggle Luxury Menu" title="Open Navigation Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </nav>
+
+    <!-- Luxury Sliding Navigation Drawer -->
+    <div id="luxury-menu-drawer" class="luxury-menu-drawer">
+      <div class="drawer-header">
+        <div class="logo gold" style="font-size: 1.6rem">LUXORE</div>
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close Menu">✕</button>
+      </div>
+      <p class="drawer-subtitle">Haute Horlogerie Boutique</p>
+
+      <div class="drawer-nav-list">
+        <a href="index.html#home" class="drawer-link">
+          <span class="drawer-link-num">01</span>
+          <span class="drawer-link-text">Home</span>
+          <span class="drawer-link-tag">Boutique Entrance</span>
+        </a>
+        <a href="index.html#collection" class="drawer-link">
+          <span class="drawer-link-num">02</span>
+          <span class="drawer-link-text">Collection</span>
+          <span class="drawer-link-tag">Timepiece Catalog</span>
+        </a>
+        <a href="index.html#store" class="drawer-link">
+          <span class="drawer-link-num">03</span>
+          <span class="drawer-link-text">Our Store</span>
+          <span class="drawer-link-tag">Heritage & Atelier</span>
+        </a>
+        <a href="index.html#contact" class="drawer-link">
+          <span class="drawer-link-num">04</span>
+          <span class="drawer-link-text">Contact</span>
+          <span class="drawer-link-tag">Private Concierge</span>
+        </a>
+        <a href="my-orders.html" class="drawer-link" style="border-color: var(--g)">
+          <span class="drawer-link-num">05</span>
+          <span class="drawer-link-text" style="color: var(--g2)">My Orders 📦</span>
+          <span class="drawer-link-tag">Current Page</span>
+        </a>
+      </div>
+
+      <div class="drawer-footer">
+        <p>12 Gold Street, Main Boulevard · Mon–Sat, 10am – 8pm</p>
+        <p style="color: var(--g); margin-top: 4px">concierge@luxore.com</p>
+      </div>
+    </div>
+    <div id="nav-drawer-overlay" class="nav-drawer-overlay"></div>
 
     <main class="my-orders-container">
       <div class="orders-header-row">

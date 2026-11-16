@@ -68,9 +68,9 @@
     <!-- Navigation -->
     <nav>
       <div class="nav-left">
-        <a class="logo gold" href="#home">LUXORE</a>
+        <a class="logo gold" href="#home" data-n="home">LUXORE</a>
       </div>
-      <div class="nav-links" id="main-nav-links">
+      <div class="nav-links desktop-only" id="main-nav-links">
         <a href="#home" data-n="home">Home</a>
         <a href="#collection" data-n="collection">Collection</a>
         <a href="#store" data-n="store">Our Store</a>
@@ -82,12 +82,60 @@
           style="font-size: 0.75rem; color: var(--g); margin-left: 10px"
         ></span>
       </div>
-      <button class="nav-hamburger" id="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+      <button class="nav-hamburger" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" title="Open Boutique Navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </nav>
+
+    <!-- Luxury Navigation Drawer (Accessible on Mobile & Toggle) -->
+    <div id="luxury-menu-drawer" class="luxury-menu-drawer">
+      <div class="drawer-header">
+        <div class="logo gold" style="font-size: 1.6rem">LUXORE</div>
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close Menu">✕</button>
+      </div>
+      <p class="drawer-subtitle">Haute Horlogerie Boutique</p>
+
+      <div class="drawer-nav-list">
+        <a href="#home" class="drawer-link" data-n="home">
+          <span class="drawer-link-num">01</span>
+          <span class="drawer-link-text">Home</span>
+          <span class="drawer-link-tag">Boutique Entrance</span>
+        </a>
+        <a href="#collection" class="drawer-link" data-n="collection">
+          <span class="drawer-link-num">02</span>
+          <span class="drawer-link-text">Collection</span>
+          <span class="drawer-link-tag">Timepiece Catalog</span>
+        </a>
+        <a href="#store" class="drawer-link" data-n="store">
+          <span class="drawer-link-num">03</span>
+          <span class="drawer-link-text">Our Store</span>
+          <span class="drawer-link-tag">Heritage & Atelier</span>
+        </a>
+        <a href="#contact" class="drawer-link" data-n="contact">
+          <span class="drawer-link-num">04</span>
+          <span class="drawer-link-text">Contact</span>
+          <span class="drawer-link-tag">Private Concierge</span>
+        </a>
+        <a href="my-orders.html" class="drawer-link">
+          <span class="drawer-link-num">05</span>
+          <span class="drawer-link-text">My Orders 📦</span>
+          <span class="drawer-link-tag">Track Acquisitions</span>
+        </a>
+        <a href="https://my-portfolio-ten-zeta-3wnea5nse7.vercel.app" class="drawer-link drawer-portfolio-link" data-action="back-to-portfolio" title="Return to Developer Portfolio">
+          <span class="drawer-link-num">✦</span>
+          <span class="drawer-link-text">← Back to Portfolio</span>
+          <span class="drawer-link-tag">Developer Showcase</span>
+        </a>
+      </div>
+
+      <div class="drawer-footer">
+        <p>12 Gold Street, Main Boulevard · Mon–Sat, 10am – 8pm</p>
+        <p style="color: var(--g); margin-top: 4px">concierge@luxore.com</p>
+      </div>
+    </div>
+    <div id="nav-drawer-overlay" class="nav-drawer-overlay"></div>
 
     <!-- View 1: Home -->
     <main id="home" class="v on">

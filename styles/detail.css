@@ -4,6 +4,11 @@
 .detail-page-container {
   padding: 120px 7% 80px;
   min-height: 85vh;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .breadcrumb-bar {

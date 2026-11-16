@@ -141,12 +141,54 @@ async function renderMyOrdersPage() {
 
 function setupPageExtras() {
   const toggleBtn = document.getElementById("nav-toggle-btn");
-  const navLinks = document.getElementById("main-nav-links");
-  if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("mobile-open");
-    });
+  const drawer = document.getElementById("luxury-menu-drawer");
+  const overlay = document.getElementById("nav-drawer-overlay");
+  const closeBtn = document.getElementById("drawer-close-btn");
+  const desktopLinks = document.getElementById("main-nav-links");
+
+  function closeMenu() {
+    toggleBtn?.classList.remove("active");
+    drawer?.classList.remove("open");
+    overlay?.classList.remove("open");
+    desktopLinks?.classList.remove("mobile-open");
+    document.body.style.overflow = "";
   }
+
+  function openMenu() {
+    toggleBtn?.classList.add("active");
+    drawer?.classList.add("open");
+    overlay?.classList.add("open");
+    desktopLinks?.classList.add("mobile-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function toggleMenu(e) {
+    if (e) e.stopPropagation();
+    const isOpen =
+      drawer?.classList.contains("open") ||
+      desktopLinks?.classList.contains("mobile-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  toggleBtn?.addEventListener("click", toggleMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+
+  document
+    .querySelectorAll(".drawer-link, #main-nav-links a")
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
 
   const footerEl = document.getElementById("myorders-footer");
   if (footerEl) {

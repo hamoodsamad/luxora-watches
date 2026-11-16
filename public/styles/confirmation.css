@@ -5,6 +5,11 @@
   padding: 120px 7% 80px;
   display: flex;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .confirmation-card-root {
