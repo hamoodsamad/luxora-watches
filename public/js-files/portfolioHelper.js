@@ -3,7 +3,7 @@
  * Direct navigation to developer portfolio (Main Page Only)
  */
 
-export const PORTFOLIO_URL = "https://my-portfolio-czuhuqnne-hamoodsamad0321-6526.vercel.app";
+export const PORTFOLIO_URL = "https://my-portfolio-ten-zeta-3wnea5nse7.vercel.app";
 
 export function initPortfolioNavigation() {
   const path = window.location.pathname;
