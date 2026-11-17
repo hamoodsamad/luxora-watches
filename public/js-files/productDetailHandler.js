@@ -298,14 +298,27 @@ function setupPageExtras() {
   const overlay = document.getElementById("nav-drawer-overlay");
   const closeBtn = document.getElementById("drawer-close-btn");
 
+  if (drawer && !drawer.classList.contains("open")) {
+    drawer.style.display = "none";
+  }
+
   function closeMenu() {
     toggleBtn?.classList.remove("active");
     drawer?.classList.remove("open");
     overlay?.classList.remove("open");
     document.body.style.overflow = "";
+    setTimeout(() => {
+      if (!drawer?.classList.contains("open") && drawer) {
+        drawer.style.display = "none";
+      }
+    }, 350);
   }
 
   function openMenu() {
+    if (drawer) {
+      drawer.style.display = "flex";
+      void drawer.offsetWidth;
+    }
     toggleBtn?.classList.add("active");
     drawer?.classList.add("open");
     overlay?.classList.add("open");

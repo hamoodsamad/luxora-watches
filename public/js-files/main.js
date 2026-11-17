@@ -14,14 +14,31 @@ function setupMobileNav() {
   const overlay = document.getElementById("nav-drawer-overlay");
   const closeBtn = document.getElementById("drawer-close-btn");
 
+  if (!drawer) return;
+
+  // Ensure initially hidden from layout flow when closed
+  if (!drawer.classList.contains("open")) {
+    drawer.style.display = "none";
+  }
+
   function closeMenu() {
     toggleBtn?.classList.remove("active");
     drawer?.classList.remove("open");
     overlay?.classList.remove("open");
     document.body.style.overflow = "";
+    setTimeout(() => {
+      if (!drawer?.classList.contains("open") && drawer) {
+        drawer.style.display = "none";
+      }
+    }, 350);
   }
 
   function openMenu() {
+    if (drawer) {
+      drawer.style.display = "flex";
+      // Force reflow
+      void drawer.offsetWidth;
+    }
     toggleBtn?.classList.add("active");
     drawer?.classList.add("open");
     overlay?.classList.add("open");
@@ -52,6 +69,72 @@ function setupMobileNav() {
   // Close on Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
+  });
+}
+
+// Luxury Welcome / Sign-in & Guest Access Modal
+function setupWelcomeLogin() {
+  const modal = document.getElementById("welcome-login-modal");
+  const skipBtn = document.getElementById("btn-skip-login");
+  const guestBtn = document.getElementById("btn-continue-guest");
+  const loginForm = document.getElementById("client-login-form");
+  const nameInput = document.getElementById("member-name");
+  const emailInput = document.getElementById("member-email");
+  const greetingEl = document.getElementById("nav-user-greeting");
+
+  if (!modal) return;
+
+  // Check if member or guest state is saved
+  const savedMember = localStorage.getItem("luxore_logged_member");
+  const sessionGuest = sessionStorage.getItem("luxore_session_guest");
+
+  if (savedMember) {
+    try {
+      const parsed = JSON.parse(savedMember);
+      if (greetingEl && parsed.name) {
+        greetingEl.textContent = `Welcome, ${parsed.name}`;
+      }
+    } catch (_) {}
+  }
+
+  // If already logged in or previously dismissed as guest in this session, hide modal completely
+  if (savedMember || sessionGuest === "true") {
+    modal.classList.add("hidden");
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    return;
+  }
+
+  function dismissAsGuest() {
+    sessionStorage.setItem("luxore_session_guest", "true");
+    modal.classList.add("hidden");
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    showToast("Welcome to Luxore Boutique. Exploring as Private Guest.", "info");
+  }
+
+  skipBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    dismissAsGuest();
+  });
+
+  guestBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    dismissAsGuest();
+  });
+
+  loginForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = nameInput?.value.trim() || "Esteemed Collector";
+    const email = emailInput?.value.trim() || "";
+    localStorage.setItem("luxore_logged_member", JSON.stringify({ name, email }));
+    if (greetingEl) {
+      greetingEl.textContent = `Welcome, ${name}`;
+    }
+    modal.classList.add("hidden");
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    showToast(`Welcome to Luxore Boutique, ${name}.`, "success");
   });
 }
 
@@ -423,6 +506,7 @@ async function initApp() {
   setupTilt(".stage", "#hw", 25);
   setupTilt(".best .bw", "#tourbillon-watch", 20);
   initCustomCursor();
+  setupWelcomeLogin();
   setupMobileNav();
   setupCollectionControls();
   setupContactForm();

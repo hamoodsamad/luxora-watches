@@ -22,12 +22,75 @@
     <div id="cur"></div>
     <div id="dot"></div>
 
+    <!-- Luxury Welcome / Sign-In & Guest Access Modal -->
+    <div id="welcome-login-modal" class="auth-modal-overlay">
+      <div class="auth-modal-card">
+        <button
+          id="btn-skip-login"
+          class="skip-btn"
+          type="button"
+          aria-label="Continue as Guest"
+          title="Continue as Guest"
+        >
+          ✕ Continue as Guest
+        </button>
+        <div class="logo gold" style="font-size: 2.1rem; margin-bottom: 6px">
+          LUXORE
+        </div>
+        <p class="eye" style="margin-bottom: 8px">Private Collector Access</p>
+        <p style="color: var(--mut); font-size: 0.88rem; line-height: 1.5; margin-bottom: 20px">
+          Sign in for personalized horological curation, or explore our boutique as an esteemed private guest.
+        </p>
+
+        <form id="client-login-form">
+          <input
+            type="text"
+            id="member-name"
+            class="modal-input"
+            placeholder="Your Name"
+            autocomplete="name"
+          />
+          <input
+            type="email"
+            id="member-email"
+            class="modal-input"
+            placeholder="Email Address"
+            autocomplete="email"
+          />
+          <button
+            type="submit"
+            class="btn f"
+            style="width: 100%; margin: 10px 0 8px"
+          >
+            Enter Boutique
+          </button>
+          <button
+            type="button"
+            id="btn-continue-guest"
+            class="btn"
+            style="width: 100%; margin: 0; font-size: 0.72rem; border-color: var(--bd); color: var(--mut)"
+          >
+            Explore as Private Guest
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
       <div class="nav-left">
         <a class="logo gold" href="#home" data-n="home">LUXORE</a>
       </div>
-      <button class="nav-hamburger" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" title="Open Boutique Navigation">
+      <div class="nav-links desktop-only" id="main-nav-links">
+        <a href="#home" data-n="home">Home</a>
+        <a href="#collection" data-n="collection">Collection</a>
+        <a href="#store" data-n="store">Our Store</a>
+        <a href="#contact" data-n="contact">Contact</a>
+        <a href="my-orders.html" class="my-orders-nav-btn">My Orders 📦</a>
+        <a href="https://my-portfolio-ten-zeta-3wnea5nse7.vercel.app" class="portfolio-back-btn" data-action="back-to-portfolio" title="Return to Developer Portfolio">← Back to Portfolio</a>
+        <span id="nav-user-greeting" style="font-size: 0.75rem; color: var(--g); margin-left: 6px"></span>
+      </div>
+      <button class="nav-hamburger mobile-only" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" title="Open Boutique Navigation">
         <span></span>
         <span></span>
         <span></span>
